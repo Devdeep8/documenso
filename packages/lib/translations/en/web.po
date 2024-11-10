@@ -3170,7 +3170,7 @@ msgstr "Stats"
 msgid "Status"
 msgstr "Status"
 
-#: apps/web/src/app/(dashboard)/settings/billing/billing-plans.tsx:128
+#: apps/web/src/app/(dashboard)/settings/billing/billing-plans.tsx:129
 msgid "Subscribe"
 msgstr "Subscribe"
 

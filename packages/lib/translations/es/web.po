@@ -3175,7 +3175,7 @@ msgstr "Estadísticas"
 msgid "Status"
 msgstr "Estado"
 
-#: apps/web/src/app/(dashboard)/settings/billing/billing-plans.tsx:128
+#: apps/web/src/app/(dashboard)/settings/billing/billing-plans.tsx:129
 msgid "Subscribe"
 msgstr "Suscribirse"
 
@@ -4816,4 +4816,3 @@ msgstr "¡Tu token se creó con éxito! ¡Asegúrate de copiarlo porque no podr�
 #: apps/web/src/app/(teams)/t/[teamUrl]/settings/tokens/page.tsx:86
 msgid "Your tokens will be shown here once you create them."
 msgstr "Tus tokens se mostrarán aquí una vez que los crees."
-

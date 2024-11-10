@@ -3175,7 +3175,7 @@ msgstr "Statistiques"
 msgid "Status"
 msgstr "Statut"
 
-#: apps/web/src/app/(dashboard)/settings/billing/billing-plans.tsx:128
+#: apps/web/src/app/(dashboard)/settings/billing/billing-plans.tsx:129
 msgid "Subscribe"
 msgstr "S'abonner"
 
@@ -4816,4 +4816,3 @@ msgstr "Votre jeton a été créé avec succès ! Assurez-vous de le copier car 
 #: apps/web/src/app/(teams)/t/[teamUrl]/settings/tokens/page.tsx:86
 msgid "Your tokens will be shown here once you create them."
 msgstr "Vos jetons seront affichés ici une fois que vous les aurez créés."
-

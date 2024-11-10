@@ -1,7 +1,7 @@
 import { jobsClient } from '@documenso/lib/jobs/client';
 
 export const config = {
-  maxDuration: 300,
+  maxDuration: 60,
   api: {
     bodyParser: false,
   },

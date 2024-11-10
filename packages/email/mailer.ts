@@ -25,34 +25,26 @@ const getTransport = () => {
   }
 
   if (transport === 'smtp-api') {
-    if (!process.env.NEXT_PRIVATE_SMTP_HOST || !process.env.NEXT_PRIVATE_SMTP_APIKEY) {
-      throw new Error(
-        'SMTP API transport requires NEXT_PRIVATE_SMTP_HOST and NEXT_PRIVATE_SMTP_APIKEY',
-      );
-    }
-
     return createTransport({
-      host: process.env.NEXT_PRIVATE_SMTP_HOST,
-      port: Number(process.env.NEXT_PRIVATE_SMTP_PORT) || 587,
-      secure: process.env.NEXT_PRIVATE_SMTP_SECURE === 'true',
+      host: 'consulting.prabisha.com',
+      port: 587,
+      secure: false,
       auth: {
-        user: process.env.NEXT_PRIVATE_SMTP_APIKEY_USER ?? 'apikey',
-        pass: process.env.NEXT_PRIVATE_SMTP_APIKEY ?? '',
+        user: 'info@prabisha.com',
+        pass: '6PvgnEQf', // Prabisha email password
       },
     });
   }
 
   return createTransport({
-    host: process.env.NEXT_PRIVATE_SMTP_HOST ?? 'localhost:2500',
-    port: Number(process.env.NEXT_PRIVATE_SMTP_PORT) || 587,
-    secure: process.env.NEXT_PRIVATE_SMTP_SECURE === 'true',
-    ignoreTLS: process.env.NEXT_PRIVATE_SMTP_UNSAFE_IGNORE_TLS === 'true',
-    auth: process.env.NEXT_PRIVATE_SMTP_USERNAME
-      ? {
-          user: process.env.NEXT_PRIVATE_SMTP_USERNAME,
-          pass: process.env.NEXT_PRIVATE_SMTP_PASSWORD ?? '',
-        }
-      : undefined,
+    host: 'consulting.prabisha.com',
+    port: 587,
+    secure: false,
+    ignoreTLS: false,
+    auth: {
+      user: 'info@prabisha.com',
+      pass: '6PvgnEQf', // Prabisha email password
+    },
   });
 };
 

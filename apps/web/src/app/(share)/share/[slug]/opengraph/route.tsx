@@ -24,6 +24,7 @@ type SharePageOpenGraphImageProps = {
 };
 
 export async function GET(_request: Request, { params: { slug } }: SharePageOpenGraphImageProps) {
+  // Loading fonts and images
   const [interSemiBold, interRegular, caveatRegular, shareFrameImage] = await Promise.all([
     fetch(new URL('@documenso/assets/fonts/inter-semibold.ttf', import.meta.url)).then(
       async (res) => res.arrayBuffer(),
@@ -52,20 +53,15 @@ export async function GET(_request: Request, { params: { slug } }: SharePageOpen
   const isRecipient = 'Signature' in recipientOrSender;
 
   const signatureImage = match(recipientOrSender)
-    .with({ Signature: P.array(P._) }, (recipient) => {
-      return recipient.Signature?.[0]?.signatureImageAsBase64 || null;
-    })
-    .otherwise((sender) => {
-      return sender.signature || null;
-    });
+    .with(
+      { Signature: P.array(P._) },
+      (recipient) => recipient.Signature?.[0]?.signatureImageAsBase64 || null,
+    )
+    .otherwise((sender) => sender.signature || null);
 
   const signatureName = match(recipientOrSender)
-    .with({ Signature: P.array(P._) }, (recipient) => {
-      return recipient.name || recipient.email;
-    })
-    .otherwise((sender) => {
-      return sender.name || sender.email;
-    });
+    .with({ Signature: P.array(P._) }, (recipient) => recipient.name || recipient.email)
+    .otherwise((sender) => sender.name || sender.email);
 
   return new ImageResponse(
     (

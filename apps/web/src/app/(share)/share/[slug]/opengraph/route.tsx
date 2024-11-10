@@ -25,17 +25,8 @@ type SharePageOpenGraphImageProps = {
 
 export async function GET(_request: Request, { params: { slug } }: SharePageOpenGraphImageProps) {
   // Loading fonts and images
-  const [interSemiBold, interRegular, caveatRegular, shareFrameImage] = await Promise.all([
+  const [interSemiBold] = await Promise.all([
     fetch(new URL('@documenso/assets/fonts/inter-semibold.ttf', import.meta.url)).then(
-      async (res) => res.arrayBuffer(),
-    ),
-    fetch(new URL('@documenso/assets/fonts/inter-regular.ttf', import.meta.url)).then(async (res) =>
-      res.arrayBuffer(),
-    ),
-    fetch(new URL('@documenso/assets/fonts/caveat-regular.ttf', import.meta.url)).then(
-      async (res) => res.arrayBuffer(),
-    ),
-    fetch(new URL('@documenso/assets/static/og-share-frame2.png', import.meta.url)).then(
       async (res) => res.arrayBuffer(),
     ),
   ]);
@@ -123,17 +114,6 @@ export async function GET(_request: Request, { params: { slug } }: SharePageOpen
     {
       ...IMAGE_SIZE,
       fonts: [
-        {
-          name: 'Caveat',
-          data: caveatRegular,
-          style: 'italic',
-        },
-        {
-          name: 'Inter',
-          data: interRegular,
-          style: 'normal',
-          weight: 400,
-        },
         {
           name: 'Inter',
           data: interSemiBold,
